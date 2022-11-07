@@ -1,0 +1,56 @@
+[
+
+    {
+        "ID": "2",
+        "title" : "Sing-In with in-valid email",
+        "testType" : "negative",
+        "verificationType" : "ErrorMessage",
+        "txtUsername" : "222@gmail.com",
+        "selUsername" : "'[id=join_neu_email_field]'",
+        "txtPassword" : "222",
+        "selPassword" : "'[id=join_neu_password_field]'",
+        "btnSubmit" : "sign-in",
+        "selSubmit" : "'[type=submit]'",
+        "expectedResult" : "notFound User Not Found"
+    },
+    {
+        "ID": "3",
+        "title" : "Sing-In with in-valid password",
+        "testType" : "negative",
+        "verificationType" : "ErrorMessage",
+        "txtUsername" : "333@gmail.com",
+        "selUsername" : "'[type=email]'",
+        "txtPassword" : "333",
+        "selPassword" : "'[type=password]'",
+        "btnSubmit" : "Submit",
+        "selSubmit" : "'[data-cy=signin-btn]'",
+        "expectedResult" : "notFound User Not Found"
+    },
+    {
+        "ID": "4",
+        "title" : "Sing-In with missing @",
+        "TesttestTypeType" : "negative",
+        "verificationType" : "url",
+        "txtUsername" : "444gmail.com",
+        "selUsername" : "'[type=email]'",
+        "txtPassword" : "444",
+        "selPassword" : "'[type=password]'",
+        "btnSubmit" : "Submit",
+        "selSubmit" : "'[data-cy=signin-btn]'",
+        "expectedResult" : "http://localhost:4100/login"
+    },
+    {
+        "ID": "1",
+        "title" : "Sing-In with valid credentials",
+        "testType" : "positive",
+        "verificationType" : "url",
+        "txtUsername" : "bills1@gmail.com",
+        "selUsername" : "'[type=email]'",
+        "txtPassword" : "bills1",
+        "selPassword" : "'[type=password]'",
+        "btnSubmit" : "Submit",
+        "selSubmit" : "'[data-cy=signin-btn]'",
+
+        "expectedResult" : "http://localhost:4100/"
+    }
+    ]
