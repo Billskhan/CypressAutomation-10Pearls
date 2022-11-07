@@ -28,16 +28,17 @@ Cypress.Commands.add('login', (username, password) => {
   cy.get('#login-password').type(password)
   cy.get('#login').submit()
 })
-Cypress.Commands.add('recaptcha', () => {
+Cypress.Commands.add('skipGoogleReCAPTCHA', () => {
     // Wait until the iframe (Google reCAPTCHA) is totally loaded
-    cy.wait(2000);
-    cy.get('#g-recaptcha *> iframe')
-    //cy.get('[style="width: 304px; height: 78px;"] > div > iframe')
-      .then($iframe => {
-        const $body = $iframe.contents().find('body');
+    cy.wait(1000);
+    //cy.get('#g-recaptcha *> iframe')
+    cy.get('.g-recaptcha-etsy *> iframe')
+      .then(($iframe) => {
+        const $body = $iframe.contents().find('body')
+        cy.log($body)
         cy.wrap($body)
-          .find('.recaptcha-checkbox-border')
-          .should('be.visible')
+          .find('div.recaptcha-checkbox-border')
+         // .should('be.visible')
           .click();
       });
   });

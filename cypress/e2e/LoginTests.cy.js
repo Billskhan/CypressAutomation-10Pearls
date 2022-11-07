@@ -17,8 +17,9 @@ describe("Multiple user login tests",() => {
         loginPage.fillEmail(user.email)
         loginPage.fillPassword(user.password)
         loginPage.submit()
-        cy.wait(100000)
+        expect(
         loginPage.loginName().should('contain',user.name)
+        )
         })   
     })
     })
@@ -29,6 +30,7 @@ describe('Login tests',()=>{
     loginPage.fillEmail("ABC")
     loginPage.fillPassword("ABC")
     loginPage.submit()
+    cy.skipGoogleReCAPTCHA()
     expect(
         loginPage.emailError().should('contain','Username is invalid.')
     )
@@ -37,7 +39,7 @@ describe('Login tests',()=>{
     loginPage.fillEmail("aabbcc@gmail.com")
     loginPage.fillPassword("ABC")
     loginPage.submit()
-    cy.wait(10000)
+    cy.skipGoogleReCAPTCHA()
     expect(
         loginPage.passwordError().should('contain','Password was incorrect')
     )

@@ -65,6 +65,10 @@ describe('Valid emil Tests',() =>{
         myReg.fillFirstName("Bilal Tahir")
         myReg.fillPassword("Qwe123!@#")
         myReg.btnRegisterr()
+        cy.skipGoogleReCAPTCHA()
+        expect(
+            cy.get('.wt-hide-xs > .wt-text-link').should('contain','Bilal Tahir')
+        )
         })
     })
 })
